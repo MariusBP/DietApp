@@ -11,7 +11,7 @@ public class MealDatabaseHandler {
     private static final String PASSWORD = System.getenv("DB_PASSWORD");
 
     // Method to insert a new meal into the database
-    public void addMeal(String name, int calories, int prepTime, String dietPreference, String description) {
+    public void insertMeal(String name, int calories, int prepTime, String dietPreference, String description) {
         Connection connection = null;
         PreparedStatement stmt = null;
 
