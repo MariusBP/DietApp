@@ -39,14 +39,11 @@ public class DatabaseHandler {
         try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
-            // Set query parameters
             pstmt.setString(1, firstName);
             pstmt.setString(2, lastName);
 
-            // Execute query
             ResultSet rs = pstmt.executeQuery();
 
-            // Process result
             if (rs.next()) {
                 try {
 
