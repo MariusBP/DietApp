@@ -1,7 +1,5 @@
 package classes;
 
-import java.util.List;
-
 public class Person {
     private String firstName;
     private String lastName;
