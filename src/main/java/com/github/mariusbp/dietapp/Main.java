@@ -6,7 +6,8 @@ import classes.Person;
 
 public class Main {
     public static void main(String[] args) {
-        Person geralt = DatabaseHandler.fetchPerson("Geralt", "of Rivia");
+        DatabaseHandler handler = new DatabaseHandler();
+        Person geralt = handler.fetchPerson("Geralt", "of Rivia");
         System.out.println(geralt.getFullName());
     }
 }

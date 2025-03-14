@@ -1,11 +1,10 @@
 classes\WeightGoal.class
+classes\MealDatabaseHandler.class
 classes\Ingredient.class
 classes\Person.class
-classes\Allergies.class
 classes\Lifestyle.class
 classes\Diet.class
-classes\DataSet.class
 classes\DietPreference.class
 classes\Meal.class
-classes\BrowseState.class
+classes\DatabaseHandler.class
 com\github\mariusbp\dietapp\Main.class
