@@ -1,0 +1,11 @@
+-------------------------------------------------------------------------------
+Test set: classes.DatabaseHandlerTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 1.146 s <<< FAILURE! -- in classes.DatabaseHandlerTest
+classes.DatabaseHandlerTest.fetchPerson -- Time elapsed: 1.080 s <<< FAILURE!
+java.lang.AssertionError
+	at classes.DatabaseHandlerTest.fetchPerson(DatabaseHandlerTest.java:21)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
