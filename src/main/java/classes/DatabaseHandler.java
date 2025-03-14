@@ -3,15 +3,28 @@ package classes;
 import java.sql.*;
 
 public class DatabaseHandler {
-    private static final String URL = System.getenv("DB_URL");
-    private static final String USER = System.getenv("DB_USERNAME");
-    private static final String PASSWORD = System.getenv("DB_PASSWORD");
+    private static Connection connection;
 
-    public static void insertPerson(Person newPerson) {
+    DatabaseHandler(Connection connection){
+        DatabaseHandler.connection = connection;
+    }
+
+    public DatabaseHandler(){
+        String URL = System.getenv("DB_URL");
+        String USER = System.getenv("DB_USERNAME");
+        String PASSWORD = System.getenv("DB_PASSWORD");
+        try {
+            connection = DriverManager.getConnection(URL, USER, PASSWORD);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void insertPerson(Person newPerson) {
         String sql = "INSERT INTO marius.person (first_name, last_name, age, weight, lifestyle, diet_preference, weight_goal, allergies) " +
                 "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
-        try (Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
+        try (
              PreparedStatement pstmt = connection.prepareStatement(sql)) {
 
             pstmt.setString(1, newPerson.getFirstName());
@@ -33,11 +46,11 @@ public class DatabaseHandler {
         }
     }
 
-    public static Person fetchPerson(String firstName, String lastName) {
+    public Person fetchPerson(String firstName, String lastName) {
         String sql = "SELECT first_name, last_name, age, weight, lifestyle, diet_preference, weight_goal, allergies FROM person WHERE first_name = ? AND last_name = ?";
 
-        try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+        try (
+             PreparedStatement pstmt = connection.prepareStatement(sql)) {
 
             pstmt.setString(1, firstName);
             pstmt.setString(2, lastName);
