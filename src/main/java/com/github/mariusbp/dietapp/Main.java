@@ -8,6 +8,7 @@ public class Main {
     public static void main(String[] args) {
         DatabaseHandler handler = new DatabaseHandler();
         Person geralt = handler.fetchPerson("Geralt", "of Rivia");
+        handler.insertPerson(geralt);
         System.out.println(geralt.getFullName());
     }
 }

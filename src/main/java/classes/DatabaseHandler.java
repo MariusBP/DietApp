@@ -5,7 +5,7 @@ import java.sql.*;
 public class DatabaseHandler {
     private static Connection connection;
 
-    DatabaseHandler(Connection connection){
+    public DatabaseHandler(Connection connection){
         DatabaseHandler.connection = connection;
     }
 
@@ -21,7 +21,7 @@ public class DatabaseHandler {
     }
 
     public void insertPerson(Person newPerson) {
-        String sql = "INSERT INTO marius.person (first_name, last_name, age, weight, lifestyle, diet_preference, weight_goal, allergies) " +
+        String sql = "INSERT INTO person (first_name, last_name, age, weight, lifestyle, diet_preference, weight_goal, allergies) " +
                 "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
         try (

@@ -14,15 +14,23 @@ class DatabaseHandlerTest extends DatabaseTest{
         databaseHandler = new DatabaseHandler(connection);
     }
 
-    private final Person testPerson = new Person("Test", "Testerton", 66, 66, DietPreference.CARNIVORE, "Shellfish", WeightGoal.GAIN_WEIGHT, Lifestyle.SEDENTARY);
+    private final Person testPerson = new Person("Test", "Testerton", 66, 77, DietPreference.CARNIVORE, "Shellfish", WeightGoal.GAIN_WEIGHT, Lifestyle.SEDENTARY);
 
     @Test
-    void testInsertPerson() {
+    public void testInsertPerson() {
         databaseHandler.insertPerson(testPerson);
+
+        Person insertedPerson = databaseHandler.fetchPerson("Test", "Testerton");
+        assertNotNull(insertedPerson);
+        assertEquals("Test", insertedPerson.getFirstName());
+        assertEquals("Testerton", insertedPerson.getLastName());
+        assertEquals(66, insertedPerson.getAge());
+        assertEquals(77, insertedPerson.getWeight());
     }
 
     @Test
     void fetchPerson() {
+        databaseHandler.insertPerson(testPerson);
         Person testPerson = databaseHandler.fetchPerson("Test" , "Testerton");
         assertEquals("Test Testerton", testPerson.getFullName());
     }

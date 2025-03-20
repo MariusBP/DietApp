@@ -1,10 +1,23 @@
 -------------------------------------------------------------------------------
 Test set: classes.DatabaseHandlerTest
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 1.146 s <<< FAILURE! -- in classes.DatabaseHandlerTest
-classes.DatabaseHandlerTest.fetchPerson -- Time elapsed: 1.080 s <<< FAILURE!
-java.lang.AssertionError
-	at classes.DatabaseHandlerTest.fetchPerson(DatabaseHandlerTest.java:21)
+Tests run: 2, Failures: 1, Errors: 1, Skipped: 0, Time elapsed: 38.89 s <<< FAILURE! -- in classes.DatabaseHandlerTest
+classes.DatabaseHandlerTest.fetchPerson -- Time elapsed: 0.274 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "classes.Person.getFullName()" because "testPerson" is null
+	at classes.DatabaseHandlerTest.fetchPerson(DatabaseHandlerTest.java:34)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+classes.DatabaseHandlerTest.testInsertPerson -- Time elapsed: 0.058 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: not <null>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertNotNull.failNull(AssertNotNull.java:49)
+	at org.junit.jupiter.api.AssertNotNull.assertNotNull(AssertNotNull.java:35)
+	at org.junit.jupiter.api.AssertNotNull.assertNotNull(AssertNotNull.java:30)
+	at org.junit.jupiter.api.Assertions.assertNotNull(Assertions.java:304)
+	at classes.DatabaseHandlerTest.testInsertPerson(DatabaseHandlerTest.java:24)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
