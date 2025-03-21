@@ -4,12 +4,9 @@ import org.junit.jupiter.api.BeforeAll;
 import org.testcontainers.containers.OracleContainer;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.Statement;
-import java.util.stream.Collectors;
 
-import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
